@@ -4,19 +4,21 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 app.use(express.json());
 
+// /auth → auth 서비스로 프록시
 app.use('/auth', createProxyMiddleware({
-  target: 'http://localhost:8080',
+  target: 'http://auth:8080',   // ★ 서비스 DNS 이름
   changeOrigin: true,
   pathRewrite: {
-    '^/auth': '',
+    '^/auth': '',               // /auth → / 로 전달
   },
 }));
 
+// /users → user 서비스로 프록시
 app.use('/users', createProxyMiddleware({
-  target: 'http://localhost:8080',
+  target: 'http://user:8080',   // ★ user 서비스
   changeOrigin: true,
   pathRewrite: {
-    '^/users': '/users',
+    '^/users': '/users',        // /users → /users 그대로
   },
 }));
 
