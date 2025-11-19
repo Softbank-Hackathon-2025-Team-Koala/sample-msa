@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/auth', createProxyMiddleware({
-  target: 'http://localhost:3001',
+  target: 'http://localhost:8080',
   changeOrigin: true,
   pathRewrite: {
     '^/auth': '',
@@ -13,7 +13,7 @@ app.use('/auth', createProxyMiddleware({
 }));
 
 app.use('/users', createProxyMiddleware({
-  target: 'http://localhost:3002',
+  target: 'http://localhost:8080',
   changeOrigin: true,
   pathRewrite: {
     '^/users': '/users',
