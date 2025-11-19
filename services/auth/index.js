@@ -34,7 +34,7 @@ app.get('/verify', (req, res) => {
   }
 });
 
-const PORT = 3001;
+const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Auth service running on port ${PORT}`);
 });
