@@ -35,7 +35,7 @@ app.post('/users', (req, res) => {
   res.status(201).json(newUser);
 });
 
-const PORT = 3002;
+const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`User service running on port ${PORT}`);
 });
