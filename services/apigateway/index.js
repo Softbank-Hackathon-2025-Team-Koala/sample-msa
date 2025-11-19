@@ -24,7 +24,7 @@ app.get('/health', (req, res) => {
   res.json({ status: 'API Gateway is running' });
 });
 
-const PORT = 3000;
+const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`API Gateway running on port ${PORT}`);
 });
